@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CarRent.Models.Rentals>
+
+
+
+
+
+    @foreach (var item in Model) {
+
+        <div class="card" style="width: 20rem; background-color: #d4d9d7; margin: 10px;">
+
+          <div class="card-body">
+            <h5 class="card-title">@item.Car.RegisterationNumber</h5>
+            <p class="card-text">Make:&ensp;@item.Car.Make</p>
+            <p class="card-text">Model:&ensp;@item.Car.Model</p>
+            <p class="card-text">Driver Info</p>
+            <p class="card-text">Driver Name:&ensp;@item.Driver.Name @item.Driver.Surname</p>
+            <p class="card-text">Driver Phone:&ensp;@item.Driver.PhoneNumber</p>
+            <p class="card-text">Date of Rent:&ensp;@item.RentData</p>
+            <p class="card-text">Date of Return:&ensp;@item.ReturnDate</p>
+
+            @if (@item.ReturnDate != null)
+            {
+                <p class="card-text">Date of return:&ensp;@item.Driver.PhoneNumber</p>
+            }
+
+          </div>
+        </div>
+    }
