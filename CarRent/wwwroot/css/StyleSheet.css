@@ -1,0 +1,50 @@
+﻿main {
+    width: fit-content;
+}
+
+p {
+    float: right;
+}
+
+.table {
+    width: 100%;
+    border-left: solid 2px #dee2e6;
+    border-right: solid 2px #dee2e6;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+.table thead th {
+    text-align: center;
+    white-space: nowrap;
+    border-left: solid 2px #dee2e6;
+}
+.table tr {
+    border-bottom: solid 1px #dee2e6;
+}
+
+.table td {
+    white-space: nowrap;
+    border-top: 1px #dee2e6;
+    border-left: solid 2px #dee2e6;
+    text-align: center;
+}
+
+tr:nth-of-type(even) {
+    background-color: #f2f2f2;
+}
+
+.actions {
+    white-space: nowrap;
+    display: flex;
+}
+
+.btn {
+    margin: 0 5px;
+}
+
+
+
+
+

@@ -1,39 +1,40 @@
-﻿@model IEnumerable<CarRent.Models.Rentals>
+﻿<link href="~/css/StyleSheet.css" rel="stylesheet" />
+@model IEnumerable<CarRent.Models.Rentals>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List of Rentals</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary" >Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Car.RegisterationNumber)
+                Registeration Number
             </th>
-            <th> Make & Model </th>
+            <th> Make || Model </th>
             <th>
                 @Html.DisplayNameFor(model => model.Driver)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Driver.PhoneNumber)
+                Phone No.
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RentData)
+                Rent Date
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.ReturnDate)
+                Return Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Comment)
+                Comments
             </th>
          
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -42,16 +43,16 @@
              <td>
                 @Html.DisplayFor(modelItem => item.Car.RegisterationNumber)
             </td>
-            <td> @(item.Car.Make + '&'+ item.Car.Model) </td>
+            <td> @(item.Car.Make + " || "+ item.Car.Model) </td>
             <td>
                 @(item.Driver.Name + ' ' + item.Driver.Surname)
             </td>
              <td>
                 @(item.Driver.PhoneNumber)
             </td>
-              <td>
-                @Html.DisplayFor(modelItem => item.RentData)
-            </td>
+             <td>
+                 @(@item.RentData.Value.ToString("MM/dd/yyyy h:mm tt"))
+             </td>
             <td>
                 @if(item.ReturnDate.HasValue)
                     @(@item.ReturnDate.Value.ToString("MM/dd/yyyy h:mm tt"))
@@ -59,12 +60,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Comment)
             </td>
-            <td>
+            <td class="actions">
                 @if (item.ReturnDate == null)
                 {
-                    <form asp-action="ReturnDate" asp-controller="Rentals" asp-route-id="@item.Id">
-                        <button class="btn btn-success" type="submit">Return </button> |
-                    </form>
+                <form asp-action="ReturnDate" asp-controller="Rentals" asp-route-id="@item.Id">
+                    <button class="btn btn-success" type="submit">Return </button> 
+                </form>
                 }
 
                 <a href="#" onclick="del(event,@item.Id)" class="del-@item.Id btn btn-danger " >Delete</a>
@@ -78,9 +79,7 @@
 @section Scripts{
     <script>
          function del(e, id) {
-            let eventFromParam = e ;
              var data = { id: id };
-            var elementDel = document.getElementsByClassName(`del${id}`);
             Swal.fire({
               title: 'Are you sure you want to delete it?',
               text: "You won't be able to revert this!",

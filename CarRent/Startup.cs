@@ -50,7 +50,7 @@ namespace CarRent
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Rentals}/{action=Index}/{id?}");
             });
         }
     }

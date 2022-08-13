@@ -24,6 +24,8 @@ a {
   border-color: #1861ac;
 }
 
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -34,9 +36,18 @@ html {
     font-size: 16px;
   }
 }
+.justify {
+    justify-content: center;
+}
+.fright {
+    float: right;
+}
+.center {
+    text-align: center;
+}
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;

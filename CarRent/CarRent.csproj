@@ -8,16 +8,23 @@
   <ItemGroup>
     <Compile Remove="Views\Cars\**" />
     <Compile Remove="Views\Drivers\**" />
+    <Compile Remove="Views\Home\**" />
     <Content Remove="Views\Cars\**" />
     <Content Remove="Views\Drivers\**" />
+    <Content Remove="Views\Home\**" />
     <EmbeddedResource Remove="Views\Cars\**" />
     <EmbeddedResource Remove="Views\Drivers\**" />
+    <EmbeddedResource Remove="Views\Home\**" />
     <None Remove="Views\Cars\**" />
     <None Remove="Views\Drivers\**" />
+    <None Remove="Views\Home\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\Index.cshtml" />
+    <Compile Remove="Controllers\HomeController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
